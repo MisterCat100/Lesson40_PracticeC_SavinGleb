@@ -2,7 +2,7 @@ namespace WebApplication1.Models;
 
 public interface ITravelRepository
 {
-    public List<Traveler> Search(string origin, string destination);
-    public void Add(Traveler traveler);
+    public List<Order> Search(string origin, string destination);
+    public void Add(Order order);
     public void Delete(long id);
 }

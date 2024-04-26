@@ -9,5 +9,9 @@ public class Order
     [Required]
     public double Price { get; set; }
     [Required]
-    public required Traveler Traveler { get; set; }
+    public required string Origin { get; set; }
+    [Required]
+    public required string Destination { get; set; }
+    [Required]
+    public required string Traveler { get; set; }
 }

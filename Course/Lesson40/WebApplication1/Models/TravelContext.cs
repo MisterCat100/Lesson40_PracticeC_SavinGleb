@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 namespace WebApplication1.Models;
 public class TravelContext : DbContext
 {
-    public DbSet<Traveler> Travelers { get; set; } = null!;
-    public TravelContext() 
+    public DbSet<Order> Orders { get; set; } = null!;
+    public TravelContext()
         : base()
     {
         Database.EnsureCreated();
@@ -15,7 +15,7 @@ public class TravelContext : DbContext
                         .AddJsonFile("appsettings.json")
                         .SetBasePath(Directory.GetCurrentDirectory())
                         .Build();
- 
+
         optionsBuilder.UseSqlite(config.GetConnectionString("DefaultConnection"));
     }
 }

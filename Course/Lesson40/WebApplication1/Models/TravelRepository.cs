@@ -9,24 +9,25 @@ public class TravelRepository : ITravelRepository
         _context = context;
     }
 
-    public void Add(Traveler traveler)
+    public void Add(Order order)
     {
-        _context.Travelers.Add(traveler);
+        _context.Orders.Add(order);
         _context.SaveChanges();
     }
 
     public void Delete(long id)
     {
-        var traveler = _context.Travelers.FirstOrDefault(t => t.Id == id);
+        var order = _context.Orders.FirstOrDefault(o => o.Id == id);
 
-        if (traveler != null)
+        if (order != null)
         {
-            _context.Travelers.Remove(traveler);
+            _context.Orders.Remove(order);
+            _context.SaveChanges();
         }
     }
 
-    public List<Traveler> Search(string origin, string destination)
+    public List<Order> Search(string origin, string destination)
     {
-        return _context.Travelers.ToList();
+        return _context.Orders.Where(o => o.Origin == origin && o.Destination == destination).ToList();
     }
 }
